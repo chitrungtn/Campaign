@@ -1,4 +1,4 @@
-import React,{useState, useContext } from 'react'
+import React,{useState } from 'react'
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -16,6 +16,7 @@ const Campaign = () => {
     const [value, setValue] = React.useState('1');
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    console.log(event)
     setValue(newValue);
   };
 
@@ -44,9 +45,8 @@ const Campaign = () => {
     }
   }
 
-  const [dataFromChild, setDataFromChild] = useState(null);
 
-  const handleDataFromChild = (name) => {
+  const handleDataFromChild = (name:any) => {
     let temp = allData;
     temp.name = name
     setAllData(temp);

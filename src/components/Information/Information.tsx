@@ -3,9 +3,9 @@ import TextField from '@mui/material/TextField';
 import { Box } from '@mui/material';
 
 
-const Information = ({data,err, sendDataToParent }) => {
+const Information = ({err, sendDataToParent }:any) => {
   const [inputValue, setInputValue] = useState('');
-  const handleChange = (e) => {
+  const handleChange = (e:any) => {
     setInputValue(e.target.value);
     sendDataToParentHandler()
   };

@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import {useState} from 'react'
 import AddIcon from '@mui/icons-material/Add';
 import IconButton from '@mui/material/IconButton';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
@@ -17,7 +17,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 
 
-const ChildCampaign = ({subCampaigns}) => {
+const ChildCampaign = ({subCampaigns}:any) => {
 
 
     const [children,setChildren] = useState(subCampaigns)
@@ -28,28 +28,26 @@ const ChildCampaign = ({subCampaigns}) => {
         setCurrent(children.length)
     }
 
-    const handleSelect = (id) => {
+    const handleSelect = (id:any) => {
         setCurrent(id)
     }
 
 
     const [rows, setRows] = useState([{name:1,quantity:0}]);
     const handleAddChild = () => {
-    //   setRows([...rows, {name:rows.length+1,quantity:0}]);
       const temp = [...children]
       temp[current].list = [...temp[current].list,{name:temp[current].list.length+1,quantity:0}]
       console.log(temp)
       setChildren(temp)
     };
-    const handleDelete = (id) => {
+    const handleDelete = (id:any) => {
       setRows(rows.filter((item) => item.name !== id));
     };
 
-    const handleChangeInput = (e,index) => {
+    const handleChangeInput = (e:any,index:any) => {
       const temp = [...children]
       temp[current].list[index].quantity = e.target.value
       console.log(temp[current])
-      //let aas = temp[current].list.reduce((a,b)=>{a+b.quantity})
       let sum =0
       for(let i =0;i<temp[current].list.length;i++){
         sum += +temp[current].list[i].quantity
@@ -76,7 +74,7 @@ const ChildCampaign = ({subCampaigns}) => {
                         </div>
                     </div>
                     <div style={{display:'flex',flexDirection:'row'}}>
-                        {children.map((child)=>(
+                        {children.map((child:any)=>(
 
                             <Paper 
                                 onClick={()=>{handleSelect(child.id)}}
@@ -119,8 +117,6 @@ const ChildCampaign = ({subCampaigns}) => {
                             DANH SÁCH QUẢNG CÁO
                         </div>
                     </div>  
-                    {/* <List list={children[current-1].list} /> */}
-
 
                     <TableContainer component={Paper}>
                         <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -138,7 +134,7 @@ const ChildCampaign = ({subCampaigns}) => {
                             </TableRow>
                             </TableHead>
                             <TableBody>
-                            {children[current].list.map((row,index) => (
+                            {children[current].list.map((row:any,index:any) => (
                                 <TableRow
                                 key={row.name}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
