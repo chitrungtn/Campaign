@@ -1,0 +1,18 @@
+
+.icon-check {
+    padding-left: 8px;
+    color: rgb(141, 141, 141);
+}
+.active{
+    color: rgb(0, 128, 0);
+}
+.content {
+    padding: 16px;
+}
+
+/* #name {
+    display: block;
+    width: 100%;
+    outline: none;
+    border: none;
+} */
